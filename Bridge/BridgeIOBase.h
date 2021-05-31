@@ -1,0 +1,41 @@
+﻿#pragma once
+
+#include <QObject>
+#include <json.hpp>
+
+class BridgeIOBase
+    : public QObject
+{
+public:
+	using json = nlohmann::json;
+
+	/**
+	 * @brief 打开接口
+	 * @param argPackage 打开参数
+	 * @return 是否成功
+	*/
+	virtual bool open(json argPackage) = 0;
+
+	/**
+	 * @brief 配置
+	 * @param setting 配置信息
+	*/
+	virtual void setConfig(json setting) = 0;
+
+	/**
+	 * @brief 返回配置信息
+	 * @return 配置信息
+	*/
+	virtual json config()const = 0;
+
+	/**
+	 * @brief 关闭接口
+	*/
+	virtual void close() = 0;
+
+	/**
+	 * @brief 析构对象
+	*/
+	virtual ~BridgeIOBase() = 0;
+};
+
