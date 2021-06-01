@@ -99,9 +99,11 @@
     <ClInclude Include="BridgeIOBase.h" />
     <ClInclude Include="BridgeOutputBase.h" />
     <ClInclude Include="HttpClientInputBridge.h" />
+    <ClInclude Include="HttpClientOutputBridge.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HttpClientInputBridge.cpp" />
+    <ClCompile Include="HttpClientOutputBridge.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

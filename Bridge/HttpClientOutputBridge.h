@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include <httplib.h>
-#include "BridgeInputBase.h"
-class HttpClientInputBridge final :
-    public BridgeInputBase
+#include "BridgeOutputBase.h"
+
+class HttpClientOutputBridge final:
+    public BridgeOutputBase
 {
 public:
 	/**
@@ -18,10 +19,10 @@ public:
 	void close() override;
 
 	/**
-	 * @brief 从服务器地址读取信息
-	 * @return 读取到的数据
+	 * @brief 向服务器地址写入信息
+	 * @return 发送数据
 	*/
-	QByteArray read() override;
+	void write(QByteArray) override;
 
 	/**
 	 * @brief 使用path、method、body、content_type设定网站信息
@@ -34,7 +35,7 @@ public:
 	 * @return 配置信息
 	*/
 	json config() const override;
-	
+
 protected:
 	bool open(QString hostname, int port);
 	std::unique_ptr<httplib::Client> client;

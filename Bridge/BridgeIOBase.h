@@ -32,10 +32,5 @@ public:
 	 * @brief 关闭接口
 	*/
 	virtual void close() = 0;
-
-	/**
-	 * @brief 析构对象
-	*/
-	virtual ~BridgeIOBase() = 0;
 };
 

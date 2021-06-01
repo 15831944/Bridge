@@ -1,4 +1,4 @@
-﻿#include "HttpClientInputBridge.h"
+﻿#include "HttpClientOutputBridge.h"
 
 
 #define NLOHMANN_EXCEPTION_CATCHED_FLAG _nlohmann_catched_flag
@@ -36,7 +36,7 @@
 #undef NLOHMANN_EXCEPTION_CATCHED_FLAG
 
 
-bool HttpClientInputBridge::open(json argPackage)
+bool HttpClientOutputBridge::open(json argPackage)
 {
 	NLOHMANN_TRY
 		return open(QString::fromStdString(argPackage["host"]), argPackage["port"]);
@@ -49,33 +49,33 @@ bool HttpClientInputBridge::open(json argPackage)
 		return false;
 }
 
-void HttpClientInputBridge::close()
+void HttpClientOutputBridge::close()
 {
 	client.reset();
 }
 
-QByteArray HttpClientInputBridge::read()
+void HttpClientOutputBridge::write(QByteArray data)
 {
-	auto res = isPostMethod
-		? client->Post(path.c_str(), body, content_type.c_str())
-		: client->Get(path.c_str());
-	return res ? QByteArray::fromStdString(res.value().body) : QByteArray{};
+	if (isPostMethod)
+		client->Post(path.c_str(), body, content_type.c_str());
+	else
+		client->Get(path.c_str());
 }
 
-void HttpClientInputBridge::setConfig(json setting)
+void HttpClientOutputBridge::setConfig(json setting)
 {
 	NLOHMANN_TRY
 		isPostMethod = setting["method"] == "POST";
-		path = setting["path"];
-		if(setting.contains("body"))
-			body = setting["body"];
-		if(setting.contains("content_type"))
-			content_type = setting["content_type"];
+	path = setting["path"];
+	if (setting.contains("body"))
+		body = setting["body"];
+	if (setting.contains("content_type"))
+		content_type = setting["content_type"];
 	NLOHMANN_CATCH
-	NLOHMANN_CATCH_END
+		NLOHMANN_CATCH_END
 }
 
-BridgeIOBase::json HttpClientInputBridge::config() const
+BridgeIOBase::json HttpClientOutputBridge::config() const
 {
 	json j;
 	j["method"] = isPostMethod ? "POST" : "GET";
@@ -85,7 +85,7 @@ BridgeIOBase::json HttpClientInputBridge::config() const
 	return j;
 }
 
-bool HttpClientInputBridge::open(QString hostname, int port)
+bool HttpClientOutputBridge::open(QString hostname, int port)
 {
 	client = std::make_unique<httplib::Client>(hostname.toStdString(), port);
 	return client->is_valid();

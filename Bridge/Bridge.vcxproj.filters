@@ -35,12 +35,18 @@
     <ClInclude Include="BridgeOutputBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HttpClientOutputBridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HttpClientInputBridge.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpClientOutputBridge.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,7 @@
 class BridgeOutputBase :
     public BridgeIOBase
 {
+public:
 	/**
 	 * @brief 发送接口
 	 * @param data 数据
