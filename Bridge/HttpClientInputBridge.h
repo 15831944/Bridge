@@ -36,7 +36,7 @@ public:
 	json config() const override;
 	
 protected:
-	bool open(QString hostname, int port);
+	bool open(QString host, int port);
 	std::unique_ptr<httplib::Client> client;
 	std::string path;
 	std::string body;

@@ -85,9 +85,9 @@ BridgeIOBase::json HttpClientOutputBridge::config() const
 	return j;
 }
 
-bool HttpClientOutputBridge::open(QString hostname, int port)
+bool HttpClientOutputBridge::open(QString host, int port)
 {
-	client = std::make_unique<httplib::Client>(hostname.toStdString(), port);
+	client = std::make_unique<httplib::Client>(host.toStdString(), port);
 	return client->is_valid();
 }
 
