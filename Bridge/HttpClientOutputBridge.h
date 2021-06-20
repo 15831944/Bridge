@@ -2,8 +2,8 @@
 #include <httplib.h>
 #include "BridgeOutputBase.h"
 
-class HttpClientOutputBridge final:
-    public BridgeOutputBase
+class HttpClientOutputBridge final :
+	public BridgeOutputBase
 {
 public:
 	/**
@@ -20,9 +20,9 @@ public:
 
 	/**
 	 * @brief 向服务器地址写入信息
-	 * @return 发送数据
+	 * @param data 写入数据
 	*/
-	void write(QByteArray) override;
+	void write(QByteArray data) override;
 
 	/**
 	 * @brief 使用path、method、body、content_type设定网站信息
@@ -44,4 +44,3 @@ protected:
 	std::string content_type;
 	bool isPostMethod{};
 };
-

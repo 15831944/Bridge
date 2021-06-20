@@ -4,7 +4,7 @@
 #include <json.hpp>
 
 class BridgeIOBase
-    : public QObject
+	: public QObject
 {
 public:
 	using json = nlohmann::json;
@@ -33,4 +33,3 @@ public:
 	*/
 	virtual void close() = 0;
 };
-

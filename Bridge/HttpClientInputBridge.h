@@ -2,7 +2,7 @@
 #include <httplib.h>
 #include "BridgeInputBase.h"
 class HttpClientInputBridge final :
-    public BridgeInputBase
+	public BridgeInputBase
 {
 public:
 	/**
@@ -34,7 +34,7 @@ public:
 	 * @return 配置信息
 	*/
 	json config() const override;
-	
+
 protected:
 	bool open(QString host, int port);
 	std::unique_ptr<httplib::Client> client;
@@ -43,4 +43,3 @@ protected:
 	std::string content_type;
 	bool isPostMethod{};
 };
-

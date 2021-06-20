@@ -1,30 +1,32 @@
-﻿
-#include "HttpClientInputBridge.h"
+﻿#include "HttpClientInputBridge.h"
+#include "FileInputBridge.h"
+#include "FileOutputBridge.h"
 
 #include <QFile>
 
 int main()
 {
-	BridgeInputBase* bridge = new HttpClientInputBridge;
-	
-	bridge->open(nlohmann::json::parse(R"(
+	BridgeInputBase* inputBridge = new HttpClientInputBridge;
+	BridgeOutputBase* outputBridge = new FileOutputBridge;
+
+	inputBridge->open(nlohmann::json::parse(R"(
 {
     "host":"www.baidu.com",
-    "port":80
+    "port":80,
+	"filename":"demo.txt"
 })"));
 
-	bridge->setConfig(nlohmann::json::parse(R"(
+	inputBridge->setConfig(nlohmann::json::parse(R"(
 {
     "path":"/s?wd=QT_VA_ARGS_EXPAND",
     "method":"GET"
 }
 )"));
 
-	auto data = bridge->read();
+	outputBridge->open(nlohmann::json::parse(R"(
+{
+	"filename":"output.txt"
+})"));
 
-	QFile file("note.txt");
-	file.open(QFile::WriteOnly);
-	file.write(data);
-	file.close();
-
+	outputBridge->write(inputBridge->read());
 }

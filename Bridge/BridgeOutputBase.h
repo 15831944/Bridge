@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "BridgeIOBase.h"
 class BridgeOutputBase :
-    public BridgeIOBase
+	public BridgeIOBase
 {
 public:
 	/**
@@ -10,4 +10,3 @@ public:
 	*/
 	virtual void write(QByteArray data) = 0;
 };
-
