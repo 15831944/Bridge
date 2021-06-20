@@ -20,13 +20,13 @@ public:
 	 * @brief 配置
 	 * @param setting 配置信息
 	*/
-	virtual void setConfig(json setting) = 0;
+	virtual void setConfig(json setting) {}
 
 	/**
 	 * @brief 返回配置信息
 	 * @return 配置信息
 	*/
-	virtual json config()const = 0;
+	virtual json config()const { return json(); }
 
 	/**
 	 * @brief 关闭接口
