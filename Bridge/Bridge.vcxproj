@@ -98,10 +98,14 @@
     <ClInclude Include="BridgeInputBase.h" />
     <ClInclude Include="BridgeIOBase.h" />
     <ClInclude Include="BridgeOutputBase.h" />
+    <ClInclude Include="FileInputBridge.h" />
+    <ClInclude Include="FileOutputBridge.h" />
     <ClInclude Include="HttpClientInputBridge.h" />
     <ClInclude Include="HttpClientOutputBridge.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileInputBridge.cpp" />
+    <ClCompile Include="FileOutputBridge.cpp" />
     <ClCompile Include="HttpClientInputBridge.cpp" />
     <ClCompile Include="HttpClientOutputBridge.cpp" />
     <ClCompile Include="main.cpp" />
