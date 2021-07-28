@@ -21,45 +21,57 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{358614cb-65af-43f8-9f91-74d66ed7c35d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imple">
+      <UniqueIdentifier>{8d52275f-db84-4025-a779-ac0c1e07c5b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imple\FileIO">
+      <UniqueIdentifier>{fd620c12-3a63-4dc9-9e5f-943914185e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imple\HttpIO">
+      <UniqueIdentifier>{0ae3c892-d251-4c13-8717-390f422abf75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BridgeIOBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpClientInputBridge.h">
-      <Filter>Header Files</Filter>
+      <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="BridgeInputBase.h">
-      <Filter>Header Files</Filter>
+      <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="BridgeOutputBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpClientOutputBridge.h">
-      <Filter>Header Files</Filter>
+      <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="FileInputBridge.h">
-      <Filter>Header Files</Filter>
+      <Filter>imple\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="FileOutputBridge.h">
-      <Filter>Header Files</Filter>
+      <Filter>imple\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpClientInputBridge.h">
+      <Filter>imple\HttpIO</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpClientOutputBridge.h">
+      <Filter>imple\HttpIO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HttpClientInputBridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HttpClientOutputBridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileInputBridge.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>imple\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="FileOutputBridge.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>imple\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpClientInputBridge.cpp">
+      <Filter>imple\HttpIO</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpClientOutputBridge.cpp">
+      <Filter>imple\HttpIO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
