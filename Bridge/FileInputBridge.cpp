@@ -25,9 +25,8 @@ QByteArray FileInputBridge::read()
 	if (filename.isEmpty())
 		throw std::invalid_argument{ R"(Argurment "filename" is empty.)" };
 	QFile file(filename);
-	while (!file.exists())
+	while (!file.exists() || !file.open(QFile::ReadOnly))
 		QCoreApplication::processEvents();
-	file.open(QFile::ReadOnly);
 
 	auto data = file.readAll();
 
