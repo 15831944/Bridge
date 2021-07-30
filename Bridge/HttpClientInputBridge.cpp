@@ -1,6 +1,6 @@
 ﻿#include "HttpClientInputBridge.h"
 
-bool HttpClientInputBridge::open(json argPackage)
+bool HttpClientInputBridge::init(json argPackage)
 {
 	try
 	{
@@ -12,7 +12,7 @@ bool HttpClientInputBridge::open(json argPackage)
 	return false;
 }
 
-void HttpClientInputBridge::close()
+void HttpClientInputBridge::uninit()
 {
 	client.reset();
 }

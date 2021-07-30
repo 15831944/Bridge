@@ -14,7 +14,7 @@ public:
 	 * @param argPackage 打开参数
 	 * @return 是否成功
 	*/
-	virtual bool open(json argPackage) = 0;
+	virtual bool init(json argPackage) = 0;
 
 	/**
 	 * @brief 配置
@@ -31,5 +31,5 @@ public:
 	/**
 	 * @brief 关闭接口
 	*/
-	virtual void close() = 0;
+	virtual void uninit() = 0;
 };

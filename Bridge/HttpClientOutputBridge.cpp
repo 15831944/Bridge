@@ -1,6 +1,6 @@
 ﻿#include "HttpClientOutputBridge.h"
 
-bool HttpClientOutputBridge::open(json argPackage)
+bool HttpClientOutputBridge::init(json argPackage)
 {
 	try
 	{
@@ -12,7 +12,7 @@ bool HttpClientOutputBridge::open(json argPackage)
 	return false;
 }
 
-void HttpClientOutputBridge::close()
+void HttpClientOutputBridge::uninit()
 {
 	client.reset();
 }

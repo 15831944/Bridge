@@ -10,12 +10,12 @@ public:
 	 * @param argPackage 含有filename参数包
 	 * @return 是否成功
 	*/
-	bool open(json argPackage) override;
+	bool init(json argPackage) override;
 
 	/**
 	 * @brief 关闭接口
 	*/
-	void close() override;
+	void uninit() override;
 
 	/**
 	 * @brief 从服务器地址读取信息

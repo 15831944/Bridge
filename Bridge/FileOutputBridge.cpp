@@ -2,7 +2,7 @@
 #include <QCoreApplication>
 #include "FileOutputBridge.h"
 
-bool FileOutputBridge::open(json argPackage)
+bool FileOutputBridge::init(json argPackage)
 {
 	try
 	{
@@ -15,7 +15,7 @@ bool FileOutputBridge::open(json argPackage)
 	return false;
 }
 
-void FileOutputBridge::close()
+void FileOutputBridge::uninit()
 {
 	filename.clear();
 }
