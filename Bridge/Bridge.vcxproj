@@ -32,12 +32,12 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.0.1_msvc2019_64</QtInstall>
-    <QtModules>core</QtModules>
+    <QtModules>core;network</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>6.0.1_msvc2019_64</QtInstall>
-    <QtModules>core</QtModules>
+    <QtModules>core;network</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -104,6 +104,7 @@
     <ClInclude Include="FileOutputBridge.h" />
     <ClInclude Include="HttpClientInputBridge.h" />
     <ClInclude Include="HttpClientOutputBridge.h" />
+    <ClInclude Include="TcpOutputBridge.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileInputBridge.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="HttpClientInputBridge.cpp" />
     <ClCompile Include="HttpClientOutputBridge.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TcpOutputBridge.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

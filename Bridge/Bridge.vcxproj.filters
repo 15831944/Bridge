@@ -33,6 +33,9 @@
     <Filter Include="imple\HttpIO">
       <UniqueIdentifier>{0ae3c892-d251-4c13-8717-390f422abf75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="imple\TCPIO">
+      <UniqueIdentifier>{c81519a4-99f8-43d7-84a9-e48bda98afb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BridgeIOBase.h">
@@ -56,6 +59,9 @@
     <ClInclude Include="HttpClientOutputBridge.h">
       <Filter>imple\HttpIO</Filter>
     </ClInclude>
+    <ClInclude Include="TcpOutputBridge.h">
+      <Filter>imple\TCPIO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="HttpClientOutputBridge.cpp">
       <Filter>imple\HttpIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpOutputBridge.cpp">
+      <Filter>imple\TCPIO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
