@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "BridgeInputBase.h"
-class FileInputBridge final :
-	public BridgeInputBase
+#include "IBridgeInput.h"
+class FileInputBridgeImpl final :
+	public IBridgeInput
 {
 public:
 	/**
@@ -18,7 +18,13 @@ public:
 	void uninit() override;
 
 	/**
-	 * @brief 从服务器地址读取信息
+	 * @brief 测试能否读取
+	 * @return  是否可读
+	*/
+	bool canRead() override;
+
+	/**
+	 * @brief 从文件读取信息
 	 * @return 读取到的数据
 	*/
 	QByteArray read() override;

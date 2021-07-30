@@ -1,6 +1,6 @@
-﻿#include "HttpClientOutputBridge.h"
+﻿#include "HttpClientInputBridgeImpl.h"
 
-bool HttpClientOutputBridge::init(json argPackage)
+bool HttpClientInputBridgeImpl::init(json argPackage)
 {
 	try
 	{
@@ -12,20 +12,25 @@ bool HttpClientOutputBridge::init(json argPackage)
 	return false;
 }
 
-void HttpClientOutputBridge::uninit()
+void HttpClientInputBridgeImpl::uninit()
 {
 	client.reset();
 }
 
-void HttpClientOutputBridge::write(QByteArray data)
+bool HttpClientInputBridgeImpl::canRead()
 {
-	if (isPostMethod)
-		client->Post(path.c_str(), body, content_type.c_str());
-	else
-		client->Get(path.c_str());
+	return client->is_valid();
 }
 
-void HttpClientOutputBridge::setConfig(json setting)
+QByteArray HttpClientInputBridgeImpl::read()
+{
+	auto res = isPostMethod
+		? client->Post(path.c_str(), body, content_type.c_str())
+		: client->Get(path.c_str());
+	return res ? QByteArray::fromStdString(res.value().body) : QByteArray{};
+}
+
+void HttpClientInputBridgeImpl::setConfig(json setting)
 {
 	try
 	{
@@ -41,7 +46,7 @@ void HttpClientOutputBridge::setConfig(json setting)
 	}
 }
 
-BridgeIOBase::json HttpClientOutputBridge::config() const
+IBridgeIO::json HttpClientInputBridgeImpl::config() const
 {
 	json j;
 	j["method"] = isPostMethod ? "POST" : "GET";
@@ -51,7 +56,7 @@ BridgeIOBase::json HttpClientOutputBridge::config() const
 	return j;
 }
 
-bool HttpClientOutputBridge::open(QString host, int port)
+bool HttpClientInputBridgeImpl::open(QString host, int port)
 {
 	client = std::make_unique<httplib::Client>(host.toStdString(), port);
 	return client->is_valid();

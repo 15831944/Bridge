@@ -1,15 +1,15 @@
-﻿#include "HttpClientInputBridge.h"
-#include "FileInputBridge.h"
-#include "FileOutputBridge.h"
+﻿#include "HttpClientInputBridgeImpl.h"
+#include "FileInputBridgeImpl.h"
+#include "FileOutputBridgeImpl.h"
 
 #include <QFile>
 
 int main()
 {
-	BridgeInputBase* inputBridge = new HttpClientInputBridge;
-	BridgeOutputBase* outputBridge = new FileOutputBridge;
-	BridgeOutputBase* out2 = new FileOutputBridge;
-	BridgeInputBase* in2 = new FileInputBridge;
+	IBridgeInput* inputBridge = new HttpClientInputBridgeImpl;
+	IBridgeOutput* outputBridge = new FileOutputBridgeImpl;
+	IBridgeOutput* out2 = new FileOutputBridgeImpl;
+	IBridgeInput* in2 = new FileInputBridgeImpl;
 
 	inputBridge->init(nlohmann::json::parse(R"(
 {
@@ -43,5 +43,4 @@ int main()
 	})"));
 
 	out2->write(in2->read());
-	
 }

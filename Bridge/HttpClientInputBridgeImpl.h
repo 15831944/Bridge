@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <httplib.h>
-#include "BridgeInputBase.h"
-class HttpClientInputBridge final :
-	public BridgeInputBase
+#include "IBridgeInput.h"
+class HttpClientInputBridgeImpl final :
+	public IBridgeInput
 {
 public:
 	/**
@@ -16,6 +16,12 @@ public:
 	 * @brief 关闭接口
 	*/
 	void uninit() override;
+
+	/**
+	 * @brief 测试能否读取
+	 * @return  是否可读
+	*/
+	bool canRead() override;
 
 	/**
 	 * @brief 从服务器地址读取信息

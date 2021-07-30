@@ -97,22 +97,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BridgeInputBase.h" />
-    <ClInclude Include="BridgeIOBase.h" />
-    <ClInclude Include="BridgeOutputBase.h" />
-    <ClInclude Include="FileInputBridge.h" />
-    <ClInclude Include="FileOutputBridge.h" />
-    <ClInclude Include="HttpClientInputBridge.h" />
-    <ClInclude Include="HttpClientOutputBridge.h" />
-    <ClInclude Include="TcpOutputBridge.h" />
+    <QtMoc Include="CommunicationEntity.h" />
+    <ClInclude Include="IBridgeInput.h" />
+    <ClInclude Include="IBridgeIO.h" />
+    <ClInclude Include="IBridgeOutput.h" />
+    <ClInclude Include="FileInputBridgeImpl.h" />
+    <ClInclude Include="FileOutputBridgeImpl.h" />
+    <ClInclude Include="HttpClientInputBridgeImpl.h" />
+    <ClInclude Include="HttpClientOutputBridgeImpl.h" />
+    <ClInclude Include="TcpOutputBridgeImpl.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileInputBridge.cpp" />
-    <ClCompile Include="FileOutputBridge.cpp" />
-    <ClCompile Include="HttpClientInputBridge.cpp" />
-    <ClCompile Include="HttpClientOutputBridge.cpp" />
+    <ClCompile Include="CommunicationEntity.cpp" />
+    <ClCompile Include="FileInputBridgeImpl.cpp" />
+    <ClCompile Include="FileOutputBridgeImpl.cpp" />
+    <ClCompile Include="HttpClientInputBridgeImpl.cpp" />
+    <ClCompile Include="HttpClientOutputBridgeImpl.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TcpOutputBridge.cpp" />
+    <ClCompile Include="TcpOutputBridgeImpl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

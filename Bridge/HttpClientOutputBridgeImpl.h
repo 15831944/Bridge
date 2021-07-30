@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include <httplib.h>
-#include "BridgeOutputBase.h"
+#include "IBridgeOutput.h"
 
-class HttpClientOutputBridge final :
-	public BridgeOutputBase
+class HttpClientOutputBridgeImpl final :
+	public IBridgeOutput
 {
 public:
 	/**

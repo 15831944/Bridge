@@ -1,8 +1,8 @@
 ﻿#include <QFile>
 #include <QCoreApplication>
-#include "FileOutputBridge.h"
+#include "FileOutputBridgeImpl.h"
 
-bool FileOutputBridge::init(json argPackage)
+bool FileOutputBridgeImpl::init(json argPackage)
 {
 	try
 	{
@@ -15,12 +15,12 @@ bool FileOutputBridge::init(json argPackage)
 	return false;
 }
 
-void FileOutputBridge::uninit()
+void FileOutputBridgeImpl::uninit()
 {
 	filename.clear();
 }
 
-void FileOutputBridge::setConfig(json setting)
+void FileOutputBridgeImpl::setConfig(json setting)
 {
 	if (setting["mode"] == "overwrite")
 		mode = OverWrite;
@@ -32,7 +32,7 @@ void FileOutputBridge::setConfig(json setting)
 		mode = Block;
 }
 
-BridgeIOBase::json FileOutputBridge::config() const
+IBridgeIO::json FileOutputBridgeImpl::config() const
 {
 	json j;
 	switch (mode)
@@ -51,7 +51,7 @@ BridgeIOBase::json FileOutputBridge::config() const
 	return j;
 }
 
-void FileOutputBridge::write(QByteArray data)
+void FileOutputBridgeImpl::write(QByteArray data)
 {
 	QFile file(filename);
 	switch (mode)

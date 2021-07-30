@@ -38,28 +38,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BridgeIOBase.h">
+    <ClInclude Include="IBridgeIO.h">
       <Filter>base</Filter>
     </ClInclude>
-    <ClInclude Include="BridgeInputBase.h">
+    <ClInclude Include="IBridgeInput.h">
       <Filter>base</Filter>
     </ClInclude>
-    <ClInclude Include="BridgeOutputBase.h">
+    <ClInclude Include="IBridgeOutput.h">
       <Filter>base</Filter>
     </ClInclude>
-    <ClInclude Include="FileInputBridge.h">
+    <ClInclude Include="FileInputBridgeImpl.h">
       <Filter>imple\FileIO</Filter>
     </ClInclude>
-    <ClInclude Include="FileOutputBridge.h">
+    <ClInclude Include="FileOutputBridgeImpl.h">
       <Filter>imple\FileIO</Filter>
     </ClInclude>
-    <ClInclude Include="HttpClientInputBridge.h">
+    <ClInclude Include="HttpClientInputBridgeImpl.h">
       <Filter>imple\HttpIO</Filter>
     </ClInclude>
-    <ClInclude Include="HttpClientOutputBridge.h">
+    <ClInclude Include="HttpClientOutputBridgeImpl.h">
       <Filter>imple\HttpIO</Filter>
     </ClInclude>
-    <ClInclude Include="TcpOutputBridge.h">
+    <ClInclude Include="TcpOutputBridgeImpl.h">
       <Filter>imple\TCPIO</Filter>
     </ClInclude>
   </ItemGroup>
@@ -67,20 +67,28 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileInputBridge.cpp">
+    <ClCompile Include="FileInputBridgeImpl.cpp">
       <Filter>imple\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="FileOutputBridge.cpp">
+    <ClCompile Include="FileOutputBridgeImpl.cpp">
       <Filter>imple\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="HttpClientInputBridge.cpp">
+    <ClCompile Include="HttpClientInputBridgeImpl.cpp">
       <Filter>imple\HttpIO</Filter>
     </ClCompile>
-    <ClCompile Include="HttpClientOutputBridge.cpp">
+    <ClCompile Include="HttpClientOutputBridgeImpl.cpp">
       <Filter>imple\HttpIO</Filter>
     </ClCompile>
-    <ClCompile Include="TcpOutputBridge.cpp">
+    <ClCompile Include="TcpOutputBridgeImpl.cpp">
       <Filter>imple\TCPIO</Filter>
     </ClCompile>
+    <ClCompile Include="CommunicationEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CommunicationEntity.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

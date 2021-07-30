@@ -1,9 +1,9 @@
 ﻿#include <QTcpSocket>
 #include <QTcpServer>
 #include <QCoreApplication>
-#include "TcpOutputBridge.h"
+#include "TcpOutputBridgeImpl.h"
 
-bool TcpOutputBridge::init(json argPackage)
+bool TcpOutputBridgeImpl::init(json argPackage)
 {
 	try
 	{
@@ -16,22 +16,23 @@ bool TcpOutputBridge::init(json argPackage)
 	return false;
 }
 
-void TcpOutputBridge::uninit()
+void TcpOutputBridgeImpl::uninit()
 {
 	// todo: Insert uninit code here.
 }
 
-void TcpOutputBridge::setConfig(json setting)
+void TcpOutputBridgeImpl::setConfig(json setting)
 {
 	// todo: Insert config code here.
 }
 
-BridgeIOBase::json TcpOutputBridge::config() const
+IBridgeIO::json TcpOutputBridgeImpl::config() const
 {
 	// todo: Insert get config code here.
+	return json();
 }
 
-void TcpOutputBridge::write(QByteArray data)
+void TcpOutputBridgeImpl::write(QByteArray data)
 {
 	// todo: Insert write code here.
 }

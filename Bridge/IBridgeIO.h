@@ -3,7 +3,7 @@
 #include <QObject>
 #include <json.hpp>
 
-class BridgeIOBase
+class IBridgeIO
 	: public QObject
 {
 public:

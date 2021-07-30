@@ -1,8 +1,8 @@
 ﻿#include <QFile>
 #include <QCoreApplication>
-#include "FileInputBridge.h"
+#include "FileInputBridgeImpl.h"
 
-bool FileInputBridge::init(json argPackage)
+bool FileInputBridgeImpl::init(json argPackage)
 {
 	try
 	{
@@ -15,12 +15,17 @@ bool FileInputBridge::init(json argPackage)
 	return false;
 }
 
-void FileInputBridge::uninit()
+void FileInputBridgeImpl::uninit()
 {
 	filename.clear();
 }
 
-QByteArray FileInputBridge::read()
+bool FileInputBridgeImpl::canRead()
+{
+	return QFile::exists(filename);
+}
+
+QByteArray FileInputBridgeImpl::read()
 {
 	if (filename.isEmpty())
 		throw std::invalid_argument{ R"(Argurment "filename" is empty.)" };

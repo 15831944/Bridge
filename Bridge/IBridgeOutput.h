@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include "BridgeIOBase.h"
-class BridgeOutputBase :
-	public BridgeIOBase
+#include "IBridgeIO.h"
+class IBridgeOutput :
+	public IBridgeIO
 {
 public:
 	/**

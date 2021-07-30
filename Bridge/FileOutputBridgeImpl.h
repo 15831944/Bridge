@@ -1,7 +1,8 @@
 ﻿#pragma once
-#include "BridgeOutputBase.h"
-class TcpOutputBridge final :
-	public BridgeOutputBase
+
+#include "IBridgeOutput.h"
+class FileOutputBridgeImpl final :
+	public IBridgeOutput
 {
 public:
 	/**
@@ -27,11 +28,15 @@ public:
 	 * @return 配置信息
 	*/
 	json config() const override;
-	
+
 	/**
 	 * @brief 写入文件
 	 * @param data 待写入数据
 	*/
 	void write(QByteArray data) override;
 protected:
+	QString filename;
+
+	// config
+	enum { OverWrite, Skip, Block }mode{ OverWrite };
 };
