@@ -24,11 +24,19 @@ public:
 	void setConfig(json setting) override;
 
 	/**
+	 * @brief 获取配置信息
+	 * @return 配置信息
+	*/
+	json config() const override;
+	
+	/**
 	 * @brief 写入文件
 	 * @param data 待写入数据
 	*/
 	void write(QByteArray data) override;
 protected:
 	QString filename;
+
+	// config
 	enum { OverWrite, Skip, Block }mode{ OverWrite };
 };

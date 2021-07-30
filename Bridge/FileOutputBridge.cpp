@@ -32,6 +32,25 @@ void FileOutputBridge::setConfig(json setting)
 		mode = Block;
 }
 
+BridgeIOBase::json FileOutputBridge::config() const
+{
+	json j;
+	switch (mode)
+	{
+	case OverWrite:
+		j["mode"] = "overwrite";
+		break;
+	case Skip:
+		j["mode"] = "skip";
+		break;
+	case Block:
+	default:
+		j["mode"] = "block";
+		break;
+	}
+	return j;
+}
+
 void FileOutputBridge::write(QByteArray data)
 {
 	QFile file(filename);
