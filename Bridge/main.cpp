@@ -11,7 +11,7 @@ int main()
 	BridgeOutputBase* out2 = new FileOutputBridge;
 	BridgeInputBase* in2 = new FileInputBridge;
 
-	inputBridge->open(nlohmann::json::parse(R"(
+	inputBridge->init(nlohmann::json::parse(R"(
 {
     "host":"www.baidu.com",
     "port":80,
@@ -25,19 +25,19 @@ int main()
 }
 )"));
 
-	outputBridge->open(nlohmann::json::parse(R"(
+	outputBridge->init(nlohmann::json::parse(R"(
 {
 	"filename":"output.txt"
 })"));
 
 	outputBridge->write(inputBridge->read());
 
-	in2->open(nlohmann::json::parse(R"(
+	in2->init(nlohmann::json::parse(R"(
 	{
 		"filename":"output1.txt"
 	})"));
 
-	out2->open(nlohmann::json::parse(R"(
+	out2->init(nlohmann::json::parse(R"(
 	{
 		"filename":"output2.txt"
 	})"));
