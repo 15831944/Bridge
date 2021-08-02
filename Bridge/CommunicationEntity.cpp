@@ -2,7 +2,7 @@
 
 CommunicationEntity::CommunicationEntity()
 {
-	connect(this, &CommunicationEntity::newInputMessage, [=](QByteArray message)
+	connect(this, &CommunicationEntity::newInputMessage, [=](const std::shared_ptr<IBridgeInput>&, QByteArray message)
 		{
 			for (auto& output : outputs)
 			{
@@ -28,8 +28,7 @@ void CommunicationEntity::run()
 			{
 				try
 				{
-					auto message = input->read();
-					emit newInputMessage(input, message);
+					emit newInputMessage(input, input->read());
 				}
 				catch (...)
 				{
